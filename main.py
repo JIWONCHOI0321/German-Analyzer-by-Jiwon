@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 import spacy
-import de_core_news_sm
+nlp = spacy.load("de_core_news_sm")
 
 
 app = Flask(__name__)
