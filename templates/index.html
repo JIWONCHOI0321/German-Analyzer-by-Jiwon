@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>German Analyzer by Jiwon C.</title>
+    <link rel="icon" href="/static/favicon.png" type="image/png">
+</head>
+<body>
+    <h2>Enter sentence</h2>
+    <form method="POST">
+        <input type="text" name="sentence" placeholder="Ex) Ich möchte nach Hause.">
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if result %}
+        <h3>Analysis Results</h3>
+        <table border="1">
+            <tr>
+                <th>word</th>
+                <th>POS</th>
+                <th>POS 설명</th>
+                <th>Dep</th>
+                <th>Dep 설명</th>
+                <th>Head</th>
+            </tr>
+            {% for item in result %}
+            <tr>
+                <td>{{ item.text }}</td>
+                <td>{{ item.pos }}</td>
+                <td>{{ item.pos_expl }}</td>
+                <td>{{ item.dep }}</td>
+                <td>{{ item.dep_expl }}</td>
+                <td>{{ item.head }}</td>
+             </tr>
+             {% endfor %}
+          </table>
+     {% endif %}
+</body>
+</html>
